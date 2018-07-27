@@ -1,0 +1,24 @@
+{
+    "name": "kibb/paystack",
+    "description": "A comprehensive Paystack API Package",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.1",
+        "phpunit/phpunit": "^7.2"
+    },
+    "autoload": {
+        "psr-4": { "Kibb\\Paystack\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Kibb\\Paystack\\Tests\\": "tests/" }
+    },
+    "license": "Apache",
+    "authors": [
+        {
+            "name": "Akeeb Ismail",
+            "email": "ismailakeeb@gmail.com"
+        }
+    ]
+}
