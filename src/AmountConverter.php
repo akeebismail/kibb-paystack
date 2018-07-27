@@ -12,6 +12,10 @@ namespace Kibb\Paystack;
 class AmountConverter
 {
 
+    /**
+     * @param $number
+     * @return float|string
+     */
     public static function convert($number){
 
         $number = preg_replace('/\,/i','', $number);
