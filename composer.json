@@ -14,7 +14,7 @@
     "autoload-dev": {
         "psr-4": { "Kibb\\Paystack\\Tests\\": "tests/" }
     },
-    "license": "Apache",
+    "license": "",
     "authors": [
         {
             "name": "Akeeb Ismail",
