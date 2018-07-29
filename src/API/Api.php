@@ -32,7 +32,7 @@ abstract class Api implements ApiInterface
 
     public function baseUrl()
     {
-        return 'api.paystack.co';
+        return 'https://api.paystack.co';
     }
 
     /**
@@ -95,9 +95,10 @@ abstract class Api implements ApiInterface
      */
     public function execute($httpMethod, $url, array $parameters = [])
     {
+        var_dump($parameters);
         try{
-            $results = $this->getClient()->{$httpMethod}($url, ['query' => $parameters]);
-            return $results;
+            $results = $this->getClient()->{$httpMethod}($url,  ['json'=>$parameters]);
+            return json_decode((string)$results->getBody(), true);
         }catch (ClientException $exception){
             return $exception->getMessage();
         }
@@ -124,6 +125,8 @@ abstract class Api implements ApiInterface
         $stack->push(Middleware::mapRequest(function (RequestInterface $request){
             $config = $this->config;
             $request = $request->withHeader('Authorization', 'Bearer '.$config->getApiKey());
+            $request= $request->withHeader('Content-Type', 'application/json');
+            $request = $request->withHeader('User-Agent','Paystack/v1 PhpBindings/'.$config->getVersion());
             return $request;
         }));
 

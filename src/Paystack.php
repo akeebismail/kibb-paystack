@@ -16,7 +16,7 @@ class Paystack
 
     protected $config;
 
-    protected static $amountConverter ;
+    protected static $amountConverter  ='\\Kibb\Paystack\\AmountConverter::converter';
 
     /**
      * Paystack constructor.
@@ -109,9 +109,29 @@ class Paystack
 
     public function __call($method, array $parameters)
     {
-        return $this;
+        if ($this->isIteratorRequest($method)){
+            $apiInstance = $this->getApiInstance(substr($method, 0, -8));
+            return (new Pager($apiInstance))->fetch($parameters);
+        }
+        return $this->getApiInstance($method);
     }
 
+    /**
+     * Determines if the request is an iterator request.
+     *
+     * @return bool
+     */
+
+    public function isIteratorRequest($method)
+    {
+        return substr($method, -8) === 'Iterator';
+    }
+
+    /**
+     * @param $method
+     * @return mixed
+     * @throws \ReflectionException
+     */
     public function getApiInstance($method)
     {
         $class = "\\Kibb\\Paystack\\API\\".ucwords($method);
@@ -122,8 +142,6 @@ class Paystack
 
         throw new \BadMethodCallException( "Undefined method [{$method}] called.");
     }
+
+
 }
-
-$paystack = new Paystack('qwerty');
-
-echo $paystack->getApiKey();

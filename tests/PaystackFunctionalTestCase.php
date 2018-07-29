@@ -20,11 +20,38 @@ class PaystackFunctionalTestCase  extends TestCase
 
     public function setUp()
     {
-        $this->paystack = new Paystack();
+        $this->paystack = new Paystack('sk_test_2492fbcc85567b4a58dfbcb2326db4ff93a20308');
     }
 
     protected  function charge(){
         return $this->paystack->charge([
+        ]);
+    }
+
+    protected function createCustomer(){
+        return $this->paystack->customer()->create([
+
+        ]);
+    }
+
+    protected function createTransaction(){
+        return $this->paystack->transaction()->initialise([
+            'email' => 'damiz@gmail.com',
+            'amount' => '4000',
+            'reference' => '7PVGX8MEk85tgeEpVDtD'
+        ]);
+    }
+
+    protected function createTransfer()
+    {
+        return $this->paystack->transfer()->create([
+
+        ]);
+    }
+
+    protected function createTransferRecipient()
+    {
+        return $this->paystack->transferRecipient()->create([
 
         ]);
     }

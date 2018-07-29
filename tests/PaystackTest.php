@@ -54,4 +54,12 @@ class PaystackTest extends TestCase
     {
         new Paystack;
     }
+
+    /** @test */
+    public function it_can_get_and_set_amount_converter(){
+        $this->assertEquals('\\Kibb\Paystack\\AmountConverter::converter', $this->paystack->getAmountConverter());
+        $this->paystack->setAmountConverter('\\Kibb\Paystack\\AmountConverter::convert');
+
+        $this->assertEquals('\\Kibb\Paystack\\AmountConverter::convert', $this->paystack->getAmountConverter());
+    }
 }

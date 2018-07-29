@@ -1,5 +1,6 @@
 <?php
 /**
+ *
  * Created by PhpStorm.
  * User: kibb
  * Date: 7/27/18
@@ -84,6 +85,7 @@ interface ApiInterface
      * @param array $parameter
      * @return array
      */
+
     public function _options($url = null, array $parameter =[]);
 
 
