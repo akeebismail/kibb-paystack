@@ -91,7 +91,7 @@ abstract class Api implements ApiInterface
      * @param string $httpMethod
      * @param $url
      * @param array $parameters
-     * @return array|void
+     * @return array
      */
     public function execute($httpMethod, $url, array $parameters = [])
     {
