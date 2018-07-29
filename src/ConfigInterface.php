@@ -27,33 +27,18 @@ interface ConfigInterface
     public function setVersion($version);
 
     /**
-     * Returns the Stripe API key.
+     * Returns the Paystack API key.
      *
      * @return string
      */
     public function getApiKey();
 
     /**
-     * Sets the Stripe API key.
+     * Sets the Paystack API key.
      *
      * @param  string  $apiKey
      * @return $this
      */
     public function setApiKey($apiKey);
-
-    /**
-     * Returns the Stripe API version.
-     *
-     * @return string
-     */
-    public function getApiVersion();
-
-    /**
-     * Sets the Stripe API version.
-     *
-     * @param  string  $apiVersion
-     * @return $this
-     */
-    public function setApiVersion($apiVersion);
-
+    
 }

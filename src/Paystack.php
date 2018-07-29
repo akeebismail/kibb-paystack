@@ -7,7 +7,7 @@
  */
 
 namespace Kibb\Paystack;
-
+use Kibb\Paystack\Config;
 
 class Paystack
 {
@@ -23,7 +23,7 @@ class Paystack
      * @param null $apiKey
      * @param $apiVersion
      */
-    public function __construct($apiKey = null, $apiVersion)
+    public function __construct($apiKey = null, $apiVersion = null)
     {
         $this->config = new Config(self::VERSION,$apiKey, $apiVersion);
     }
@@ -57,6 +57,11 @@ class Paystack
         return $this->config->getApiKey();
     }
 
+    public function setApiKey($key)
+    {
+        $this->config->setApiKey($key);
+        return $this;
+    }
     /**
      * @return mixed
      */
@@ -118,3 +123,7 @@ class Paystack
         throw new \BadMethodCallException( "Undefined method [{$method}] called.");
     }
 }
+
+$paystack = new Paystack('qwerty');
+
+echo $paystack->getApiKey();
