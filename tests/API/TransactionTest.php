@@ -17,7 +17,15 @@ class TransactionTest extends PaystackFunctionalTestCase
     /** @test */
     public function it_can_initiate_transaction(){
         $tranxn = $this->createTransaction();
-        var_dump($tranxn);
         $this->assertEquals(true, $tranxn['status']);
     }
+
+    /** @test */
+    public function it_can_verify_transaction(){
+        $trans = $this->paystack->transaction()->verify('7PVGX8MEk85tgeEpVD09tD');
+
+        $this->assertEquals(true, $trans['status']);
+    }
+
+
 }

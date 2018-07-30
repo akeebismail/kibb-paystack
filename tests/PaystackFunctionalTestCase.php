@@ -38,7 +38,7 @@ class PaystackFunctionalTestCase  extends TestCase
         return $this->paystack->transaction()->initialise([
             'email' => 'damiz@gmail.com',
             'amount' => '4000',
-            'reference' => '7PVGX8MEk85tgeEpVDtD'
+            'reference' => '7PVGX8MEk85tgeEpVD09tD'
         ]);
     }
 

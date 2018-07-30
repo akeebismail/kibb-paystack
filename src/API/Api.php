@@ -95,7 +95,6 @@ abstract class Api implements ApiInterface
      */
     public function execute($httpMethod, $url, array $parameters = [])
     {
-        var_dump($parameters);
         try{
             $results = $this->getClient()->{$httpMethod}($url,  ['json'=>$parameters]);
             return json_decode((string)$results->getBody(), true);
