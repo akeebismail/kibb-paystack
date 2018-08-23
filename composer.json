@@ -1,6 +1,12 @@
 {
     "name": "kibb/paystack",
     "description": "A comprehensive Paystack API Package",
+    "keywords" : [
+      "php",
+      "payments",
+      "paystack"
+    ],
+    "license": "BSD-3-Clause",
     "require": {
         "php" : ">=5.6",
         "guzzlehttp/guzzle": "^6.3"
@@ -15,7 +21,6 @@
     "autoload-dev": {
         "psr-4": { "Kibb\\Paystack\\Tests\\": "tests/" }
     },
-    "license": "",
     "authors": [
         {
             "name": "Akeeb Ismail",
