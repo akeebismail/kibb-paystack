@@ -32,7 +32,7 @@ abstract class Api implements ApiInterface
 
     public function baseUrl()
     {
-        return 'https://api.paystack.co';
+        return 'https://api.paystack.co/';
     }
 
     /**
